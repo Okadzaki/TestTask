@@ -84,16 +84,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Arc.cpp" />
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CivilDeveloperTask.cpp" />
     <ClCompile Include="DataProvider.cpp" />
     <ClCompile Include="Exceptions.cpp" />
     <ClCompile Include="Point2d.cpp" />
+    <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="Polygon_Line.cpp" />
+    <ClCompile Include="Square.cpp" />
     <ClCompile Include="WDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Arc.h" />
+    <ClInclude Include="BaseFigure.h" />
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="DataProvider.h" />
     <ClInclude Include="Exceptions.h" />
+    <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="Point2d.h" />
+    <ClInclude Include="Polygon.h" />
+    <ClInclude Include="Polygon_Line.h" />
+    <ClInclude Include="Square.h" />
     <ClInclude Include="WDraw.h" />
   </ItemGroup>
   <ItemGroup>
