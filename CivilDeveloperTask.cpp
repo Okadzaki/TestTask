@@ -11,6 +11,17 @@ enum Type
     lastType = maskedType,
 };
 
+enum FigureTypes {
+	square = 1,
+	circle = 2,
+	unknown = 3,
+	anc = 4,
+	polygon = 5,
+	polygon_line = 6,
+	unknown_type = 28
+};
+
+
 std::ostream & operator << (std::ostream & strm, const Type & type)
 {	
     const char * names[] = {"foo", "bar", "masked"};
@@ -49,6 +60,7 @@ typedef ObjectFactory<Base, Type> TypeFactory;
 void checkType(TypeFactory & factory, Type type)
 {
     std::auto_ptr<Base> p;
+	
     p.reset(factory.create(type));
     std::cout << "Object with type : " << type;
     if (p.get())
@@ -63,7 +75,17 @@ void checkType(TypeFactory & factory, Type type)
 }
 
 int main()
-{	
-    
-    return 0;
+{
+	TypeFactory factory;
+	factory.add<Foo>(fooType);
+	factory.add<Bar>(barType);
+	factory.add<MaskedFoo>(maskedType);
+
+	checkType(factory, fooType);
+	checkType(factory, barType);
+	checkType(factory, maskedType);
+	checkType(factory, unknownType);
+
+	return 0;
+
 }

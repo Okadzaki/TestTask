@@ -3,7 +3,6 @@
 #include <string>
 #include <memory>
 #include <sstream>
-
 	template <class Base>
 	class AbstractCreator
 	{
@@ -42,72 +41,9 @@
 		}
 	};
 
-	/*
-	Политики для фабрики
-	*/
-
-	class ObjectFactoryException : public std::exception
-	{
-		std::string	_msg;
-	public:
-		ObjectFactoryException(const std::string & msg) throw() : _msg(msg) {}
-		virtual ~ObjectFactoryException() throw() {}
-
-		virtual const char * what() const throw()
-		{
-			return _msg.c_str();
-		}
-	};
-
-	template <class Base, class Type>
-	class ObjectFactoryIgnoreErrorPolicy
-	{
-	public:
-		Base * onCreateFailed(const Type & type) const
-		{
-			return 0;
-		}
-		void onRemoveFailed(const Type & type)
-		{
-		}
-		void onDuplicateRegistered(const Type & type)
-		{
-		}
-	};
-
-	template <class Base, class Type>
-	class ObjectFactoryThrowExceptionErrorPolicy
-	{
-	public:
-		std::string generateMessage(const char * msg, const Type & type) const
-		{
-			std::stringstream strm;
-			strm << msg << ", requested type id : " << type;
-			return strm.str();
-		}
-
-		Base * onCreateFailed(const Type & type) const
-		{
-			throw ObjectFactoryException(generateMessage("ObjectFactory - can't create object (not registered)", type));
-		}
-
-		void onRemoveFailed(const Type & type)
-		{
-			throw ObjectFactoryException(generateMessage("ObjectFactory - can't remove class (not registered)", type));
-		}
-
-		void onDuplicateRegistered(const Type & type)
-		{
-			throw ObjectFactoryException(generateMessage("ObjectFactory - class already registered", type));
-		}
-	};
-
-	/*
-	Фабрика
-	*/
-
-	template <class Base, class IdType = int, template <class, class> class ObjectFactoryErrorPolicy = ObjectFactoryIgnoreErrorPolicy >
-	class ObjectFactory : public ObjectFactoryErrorPolicy<Base, IdType>
+	
+	template <class Base, class IdType = int>
+	class ObjectFactory
 	{
 	protected:
 		typedef AbstractCreator<Base> AbstractFactory;
@@ -129,7 +65,7 @@
 			typename FactoryMap::const_iterator it = _map.find(id);
 			if (it != _map.end())
 				return it->second->create();
-			return onCreateFailed(id);
+			return nullptr;
 		}
 
 		template <class C>
@@ -147,7 +83,7 @@
 				_map.erase(it);
 			}
 			else
-				onRemoveFailed(id);
+				return;
 		}
 
 		bool isRegistered(const IdType & id) const
@@ -169,7 +105,7 @@
 			if (it == _map.end())
 				_map[id] = ptr.release();
 			else
-				onDuplicateRegistered(id);
+				return;
 		}
 
 	private:
