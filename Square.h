@@ -8,6 +8,7 @@ private:
 	Point2d points[2];
 public:
 	Square();
+	void draw(WDraw &drawer);
 	~Square();
 };
 

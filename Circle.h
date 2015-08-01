@@ -8,6 +8,7 @@ private:
 	double radius;
 public:
 	Circle();
+	virtual void draw(WDraw &drawer);
 	~Circle();
 };
 

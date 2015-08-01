@@ -5,9 +5,11 @@ class Polygon :
 	public BaseFigure
 {
 private:
-	std::vector<double> points;
+	std::vector<Point2d> points;
 public:
 	Polygon();
+	void draw(WDraw &drawer);
+
 	virtual ~Polygon();
 };
 

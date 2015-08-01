@@ -6,8 +6,10 @@ class Arc :
 private:
 	double angle_start;
 	double angle_stop;
+
 public:
 	Arc();
+	void draw(WDraw &drawer);
 	~Arc();
 };
 

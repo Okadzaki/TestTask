@@ -11,6 +11,7 @@ private:
 public:
 	BaseFigure(int params_num) : m_params_num(params_num) {};
 	virtual void draw(WDraw &drawer)=0;
+	virtual void boundingBox() = 0;
 	virtual ~BaseFigure() {};
 	virtual void read(DataProvider &data) = 0;
 };
