@@ -89,10 +89,10 @@
     <ClCompile Include="CivilDeveloperTask.cpp" />
     <ClCompile Include="DataProvider.cpp" />
     <ClCompile Include="Exceptions.cpp" />
-    <ClCompile Include="Point2d.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Polygon_Line.cpp" />
     <ClCompile Include="Square.cpp" />
+    <ClCompile Include="UnknownFigure.cpp" />
     <ClCompile Include="WDraw.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +106,8 @@
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="Polygon_Line.h" />
     <ClInclude Include="Square.h" />
+    <ClInclude Include="TypesEnum.h" />
+    <ClInclude Include="UnknownFigure.h" />
     <ClInclude Include="WDraw.h" />
   </ItemGroup>
   <ItemGroup>

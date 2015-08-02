@@ -7,8 +7,11 @@ class Square :
 private:
 	Point2d points[2];
 public:
-	Square();
 	void draw(WDraw &drawer);
-	~Square();
+	std::pair<Point2d, Point2d> boundingBox();
+	std::vector<std::pair<Point2d, Point2d>> getSegmets();
+	FigureTypes type() { return FigureTypes::square; };
+	void read(DataProvider &data);
+	~Square() {};
 };
 

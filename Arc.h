@@ -1,5 +1,7 @@
 #pragma once
 #include "Circle.h"
+#define PI 3.141
+
 class Arc :
 	public Circle
 {
@@ -8,8 +10,13 @@ private:
 	double angle_stop;
 
 public:
-	Arc();
+	Arc() {};
 	void draw(WDraw &drawer);
-	~Arc();
+	std::pair<Point2d, Point2d> boundingBox();
+	void read(DataProvider &provider);
+	std::vector<std::pair<Point2d, Point2d>> getSegmets();
+	FigureTypes type() { return FigureTypes::anc; };
+
+	~Arc() {};
 };
 

@@ -4,12 +4,18 @@
 class Polygon :
 	public BaseFigure
 {
-private:
+protected:
 	std::vector<Point2d> points;
 public:
-	Polygon();
-	void draw(WDraw &drawer);
+	Polygon() {};
+	virtual void draw(WDraw &drawer);
+	std::pair<Point2d, Point2d> boundingBox();
+	virtual void read(DataProvider &provider);
+	std::vector<std::pair<Point2d, Point2d>> getSegmets();
 
-	virtual ~Polygon();
+	FigureTypes type() { return FigureTypes::polygon; };
+
+
+	virtual ~Polygon() {};
 };
 

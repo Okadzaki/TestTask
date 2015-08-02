@@ -24,9 +24,6 @@
     <ClCompile Include="Exceptions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Point2d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="WDraw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,6 +40,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Polygon_Line.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnknownFigure.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,7 +80,10 @@
     <ClInclude Include="Polygon_Line.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FigureTypes.h">
+    <ClInclude Include="TypesEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnknownFigure.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

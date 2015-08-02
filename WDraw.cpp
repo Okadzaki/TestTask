@@ -1,11 +1,11 @@
 #include "WDraw.h"
 #include <stdio.h>
 
-WDraw::WDraw(void)
+WDraw::WDraw()
 {
 }
 
-WDraw::~WDraw(void)
+WDraw::~WDraw()
 {
 }
 

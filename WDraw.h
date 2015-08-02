@@ -6,8 +6,8 @@ class WDraw
 
 public:
 
-    WDraw(void);
-    virtual ~WDraw(void);
+    WDraw();
+    virtual ~WDraw();
 
     /************************************************************************/
     /* Основной метод отрисовки                                             */
