@@ -66,3 +66,12 @@ std::vector<std::pair<Point2d, Point2d>> Polygon::getSegmets() {
 	result.push_back(std::pair<Point2d, Point2d>(points.front(), points.back()));
 	return result;
 };
+
+double Polygon::segmentsSum() {
+	double sum = 0;
+	std::vector<std::pair<Point2d, Point2d>> segments = this->getSegmets();
+	for (std::vector<std::pair<Point2d, Point2d>>::iterator it = segments.begin(); it != segments.end(); ++it) {
+		sum += sqrt(pow(it->second.x() - it->first.x(), 2) + pow(it->second.y() - it->first.y(), 2));
+	}
+	return sum;
+}

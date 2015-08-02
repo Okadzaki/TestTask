@@ -9,11 +9,15 @@ private:
 	std::vector<double> params;
 public:
 	UnknownFigure() {};
-	virtual void draw(WDraw &drawer);
-	virtual void boundingBox(WDraw &drawer);
+	virtual void draw(WDraw &drawer)	{ throw UnknownObjectException(); }
+	;
+	virtual std::pair<Point2d, Point2d> boundingBox() { throw UnknownObjectException(); }
 	virtual void read(DataProvider &provider);
+	double segmentsSum() {
+		throw UnknownObjectException();
+	};
 	virtual FigureTypes type() { return FigureTypes::unknown;  }
 
-	std::vector<std::pair<Point2d, Point2d>> getSegmets();
+	std::vector<std::pair<Point2d, Point2d>> getSegmets() { throw UnknownObjectException(); };
 	virtual ~UnknownFigure() {};
 };

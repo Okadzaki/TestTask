@@ -10,6 +10,7 @@ public:
 	void draw(WDraw &drawer);
 	std::pair<Point2d, Point2d> boundingBox();
 	std::vector<std::pair<Point2d, Point2d>> getSegmets();
+	double segmentsSum();
 	FigureTypes type() { return FigureTypes::square; };
 	void read(DataProvider &data);
 	~Square() {};

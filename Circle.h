@@ -11,7 +11,7 @@ public:
 	virtual void draw(WDraw &drawer);
 	std::pair<Point2d, Point2d> boundingBox();
 	std::vector<std::pair<Point2d, Point2d>> getSegmets();
-
+	double segmentsSum();
 	void read(DataProvider &provider);
 	 FigureTypes type() { return FigureTypes::circle; };
 

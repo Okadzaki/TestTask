@@ -12,7 +12,7 @@ public:
 	std::pair<Point2d, Point2d> boundingBox();
 	virtual void read(DataProvider &provider);
 	std::vector<std::pair<Point2d, Point2d>> getSegmets();
-
+	double segmentsSum();
 	FigureTypes type() { return FigureTypes::polygon; };
 
 
